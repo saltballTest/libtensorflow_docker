@@ -1,7 +1,7 @@
 ARG GPU=gpu
 FROM tensorflow/tensorflow:latest-devel${GPU:+-$GPU} AS build_image
 
-LABEL maintainer="Saltball <yanbohan98@gmail.com>""
+LABEL maintainer="Saltball <yanbohan98@gmail.com>"
 
 WORKDIR /
 # Get and compile protobuf
