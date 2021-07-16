@@ -1,6 +1,6 @@
-name: Docker Image CI
+name: git-hub
 
-on:
+on: 
   push:
     branches: [ main ]
   pull_request:
@@ -8,11 +8,13 @@ on:
 
 jobs:
 
-  build:
-
+  build-gh:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - uses: whoan/docker-build-with-cache-action@fix-yaml-parsing
+      with:
+        username: saltball
+        password: "${{ secrets.GITHUB_TOKEN }}"  # you don't need to manually set this secret. GitHub does it on your behalf
+        registry: docker.pkg.github.com
+        image_name: docker_with_libtfcc
