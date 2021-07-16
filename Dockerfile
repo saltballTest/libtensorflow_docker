@@ -51,7 +51,7 @@ RUN mkdir -p ${TF_BINAR}/lib/&&\
     export TF_CUDA_CLANG=0 &&\
     export TF_NEED_TENSORRT=0 &&\
 
-    ./configure
+    ./configure &&\
 
     bazel ${BAZEL_OPTS} build \
     --copt=-march=nocona \
