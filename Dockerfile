@@ -71,6 +71,9 @@ RUN mkdir -p ${TF_BINAR}/lib/&&\
     --color=yes \
     --curses=no \
     --jobs=$(nproc)\
+    --discard_analysis_cache\
+    --nokeep_state_after_build\
+    --notrack_incremental_state\
     //tensorflow:libtensorflow_cc.so &&\
 
     mkdir -p $PREFIX/lib  &&\
